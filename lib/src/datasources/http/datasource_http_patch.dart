@@ -15,8 +15,7 @@ import 'package:ncc_data_shaft/src/driver/ncc_connection_driver.dart';
 /// session overhead.
 /// {@endtemplate}
 abstract base class DatasourcePatchHttp<
-  RemoteObject extends Codable<Object, RemoteObject>
->
+        RemoteObject extends Codable<Object, RemoteObject>>
     extends DatasourceNccPatch<RemoteObject, HttpDataShaftDriver> {
   /// {@macro datasource_patch_http}
   ///

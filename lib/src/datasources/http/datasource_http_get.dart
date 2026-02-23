@@ -13,8 +13,7 @@ import 'package:ncc_data_shaft/src/driver/ncc_connection_driver.dart';
 /// while the [HttpDataShaftDriver] manages the standard HTTP communication.
 /// {@endtemplate}
 abstract base class DatasourceGetHttp<
-  RemoteObject extends Codable<Object, RemoteObject>
->
+        RemoteObject extends Codable<Object, RemoteObject>>
     extends DatasourceNccGet<RemoteObject, HttpDataShaftDriver> {
   /// {@macro datasource_get_http}
   ///

@@ -13,9 +13,8 @@ import 'package:ncc_data_shaft/src/driver/ncc_connection_driver.dart'
 /// ensures compatibility with `ncc`'s transport layer.
 /// {@endtemplate}
 abstract base class DatasourceNccDelete<
-  RemoteObject extends Codable<Object, RemoteObject>,
-  NccDriver extends NccConnectionDriver
->
+        RemoteObject extends Codable<Object, RemoteObject>,
+        NccDriver extends NccConnectionDriver>
     extends DatasourceDeleteRemote<RemoteObject, NccDriver> {
   /// {@macro datasource_ncc_delete}
   ///

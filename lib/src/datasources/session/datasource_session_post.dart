@@ -14,8 +14,7 @@ import 'package:ncc_data_shaft/src/driver/ncc_connection_driver.dart';
 /// mapping of the server's response.
 /// {@endtemplate}
 abstract base class DatasourcePostSession<
-  RemoteObject extends Codable<Object, RemoteObject>
->
+        RemoteObject extends Codable<Object, RemoteObject>>
     extends DatasourceNccPost<RemoteObject, SessionDataShaftDriver> {
   /// {@macro datasource_post_session}
   ///

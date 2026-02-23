@@ -14,8 +14,7 @@ import 'package:ncc_data_shaft/src/driver/ncc_connection_driver.dart';
 /// are included in the request.
 /// {@endtemplate}
 abstract base class DatasourceDeleteSession<
-  RemoteObject extends Codable<Object, RemoteObject>
->
+        RemoteObject extends Codable<Object, RemoteObject>>
     extends DatasourceNccDelete<RemoteObject, SessionDataShaftDriver> {
   /// {@macro datasource_delete_session}
   ///

@@ -14,9 +14,8 @@ import 'package:ncc_data_shaft/src/driver/ncc_connection_driver.dart'
 /// the network execution.
 /// {@endtemplate}
 abstract base class DatasourceNccPost<
-  RemoteObject extends Codable<Object, RemoteObject>,
-  NccDriver extends NccConnectionDriver
->
+        RemoteObject extends Codable<Object, RemoteObject>,
+        NccDriver extends NccConnectionDriver>
     extends DatasourcePostRemote<RemoteObject, NccDriver> {
   /// {@macro datasource_ncc_post}
   ///

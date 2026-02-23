@@ -43,33 +43,29 @@ base class NccConnectionDriver<CustomClient extends BaseClient>
     return switch (type) {
       RequestType.get => client.get(url, headers: headers),
       RequestType.delete => client.delete(
-        url,
-        headers: headers,
-        body: body,
-        encoding: encoding,
-      ),
-
+          url,
+          headers: headers,
+          body: body,
+          encoding: encoding,
+        ),
       RequestType.post => client.post(
-        url,
-        headers: headers,
-        body: body,
-        encoding: encoding,
-      ),
-
+          url,
+          headers: headers,
+          body: body,
+          encoding: encoding,
+        ),
       RequestType.put => client.put(
-        url,
-        headers: headers,
-        body: body,
-        encoding: encoding,
-      ),
-
+          url,
+          headers: headers,
+          body: body,
+          encoding: encoding,
+        ),
       RequestType.patch => client.patch(
-        url,
-        headers: headers,
-        body: body,
-        encoding: encoding,
-      ),
-
+          url,
+          headers: headers,
+          body: body,
+          encoding: encoding,
+        ),
       RequestType.head => client.head(url, headers: headers),
     };
   }

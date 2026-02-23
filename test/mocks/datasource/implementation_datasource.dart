@@ -33,28 +33,31 @@ mixin ImplementationDatasource<RemoteDriver extends NccConnectionDriver>
 
 List<DatasourceRemote<MockModel, NccConnectionDriver>> getAllHttp({
   required HttpDataShaftDriver driver,
-}) => [
-  TestHttpDeleteDataSource(driver: driver),
-  TestHttpGetDataSource(driver: driver),
-  TestHttpPatchDataSource(driver: driver),
-  TestHttpPostDataSource(driver: driver),
-  TestHttpPutDataSource(driver: driver),
-];
+}) =>
+    [
+      TestHttpDeleteDataSource(driver: driver),
+      TestHttpGetDataSource(driver: driver),
+      TestHttpPatchDataSource(driver: driver),
+      TestHttpPostDataSource(driver: driver),
+      TestHttpPutDataSource(driver: driver),
+    ];
 
 List<DatasourceRemote<MockModel, NccConnectionDriver>> getAllSession({
   required SessionDataShaftDriver driver,
-}) => [
-  TestSessionDeleteDataSource(driver: driver),
-  TestSessionGetDataSource(driver: driver),
-  TestSessionPatchDataSource(driver: driver),
-  TestSessionPostDataSource(driver: driver),
-  TestSessionPutDataSource(driver: driver),
-];
+}) =>
+    [
+      TestSessionDeleteDataSource(driver: driver),
+      TestSessionGetDataSource(driver: driver),
+      TestSessionPatchDataSource(driver: driver),
+      TestSessionPostDataSource(driver: driver),
+      TestSessionPutDataSource(driver: driver),
+    ];
 
 List<DatasourceRemote<MockModel, NccConnectionDriver>> getAll({
   required HttpDataShaftDriver driverHttp,
   required SessionDataShaftDriver driverSession,
-}) => [
-  ...getAllHttp(driver: driverHttp),
-  ...getAllSession(driver: driverSession),
-];
+}) =>
+    [
+      ...getAllHttp(driver: driverHttp),
+      ...getAllSession(driver: driverSession),
+    ];
