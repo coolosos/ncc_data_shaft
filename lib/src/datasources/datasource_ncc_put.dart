@@ -13,9 +13,8 @@ import 'package:ncc_data_shaft/src/driver/ncc_connection_driver.dart'
 /// updated, while [NccDriver] manages the HTTP PUT execution.
 /// {@endtemplate}
 abstract base class DatasourceNccPut<
-  RemoteObject extends Codable<Object, RemoteObject>,
-  NccDriver extends NccConnectionDriver
->
+        RemoteObject extends Codable<Object, RemoteObject>,
+        NccDriver extends NccConnectionDriver>
     extends DatasourcePutRemote<RemoteObject, NccDriver> {
   /// {@macro datasource_ncc_put}
   ///

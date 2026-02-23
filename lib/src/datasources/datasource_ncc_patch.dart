@@ -13,9 +13,8 @@ import 'package:ncc_data_shaft/src/driver/ncc_connection_driver.dart'
 /// partial data, while [NccDriver] provides the network execution context.
 /// {@endtemplate}
 abstract base class DatasourceNccPatch<
-  RemoteObject extends Codable<Object, RemoteObject>,
-  NccDriver extends NccConnectionDriver
->
+        RemoteObject extends Codable<Object, RemoteObject>,
+        NccDriver extends NccConnectionDriver>
     extends DatasourcePatchRemote<RemoteObject, NccDriver> {
   /// {@macro datasource_ncc_patch}
   ///
