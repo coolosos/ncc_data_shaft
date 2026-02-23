@@ -1,0 +1,25 @@
+{
+        "version": "0.2",
+        "$schema": "https://raw.githubusercontent.com/streetsidesoftware/cspell/main/cspell.schema.json",
+        "enableGlobDot": true,
+        "language": "en,es",
+        "dictionaries": [
+                "en",
+                "es"
+        ],
+        "words": [
+                "Bañón",
+                "Bernabeu",
+                "buildlog",
+                "Catalá",
+                "Cayetano",
+                "coolint",
+                "Coolosos",
+                "datasource",
+                "Datasource",
+                "endtemplate",
+                "github",
+                "pubspec",
+                "xcconfig"
+        ]
+}
