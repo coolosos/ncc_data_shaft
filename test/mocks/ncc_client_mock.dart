@@ -191,7 +191,7 @@ base class SessionClientMock extends SessionClient {
   }
 }
 
-class NetworkException implements Exception {}
+class NetworkThrowException implements Exception {}
 
 // ignore: must_be_immutable MOCK
 final class ExceptionThrowingClient extends SessionClientMock {
@@ -199,6 +199,6 @@ final class ExceptionThrowingClient extends SessionClientMock {
 
   @override
   Future<Response> get(Uri url, {Map<String, String>? headers}) async {
-    throw NetworkException();
+    throw NetworkThrowException();
   }
 }

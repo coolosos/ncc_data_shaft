@@ -1,0 +1,14 @@
+name: example_ncc_data_shaft
+description: The official bridge between network_cool_client (ncc) and data_shaft. Provides standardized drivers and datasources for a clean data layer.
+version: 1.0.0
+publish_to: none
+
+environment:
+  sdk: ">=3.5.0 <4.0.0"
+
+dependencies:
+  ncc_data_shaft:
+    path: ../
+
+dev_dependencies:
+  coolint: 2.1.2

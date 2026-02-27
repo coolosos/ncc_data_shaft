@@ -30,7 +30,7 @@ void main() {
 
         expect(
           () => exceptionDriver.get(testUri),
-          throwsA(isA<NetworkException>()),
+          throwsA(isA<NetworkThrowException>()),
         );
       },
     );
