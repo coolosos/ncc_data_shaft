@@ -17,7 +17,6 @@ environment:
   sdk: ">=3.5.0 <4.0.0"
 
 dependencies:
-  path: ^1.9.0
   ncc: ^1.0.0
   data_shaft: ^1.0.0
   meta: ^1.18.1
