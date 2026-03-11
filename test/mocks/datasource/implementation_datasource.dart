@@ -26,7 +26,7 @@ mixin ImplementationDatasource<RemoteDriver extends NccConnectionDriver>
 
   @override
   MockModel transformation({required RequestResponse remoteResponse}) {
-    return const MockModel().decode(remoteResponse.body ?? '');
+    return const MockModel().decode(remoteResponse.body!());
   }
 }
 

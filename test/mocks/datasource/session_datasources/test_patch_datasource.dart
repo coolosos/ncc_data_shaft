@@ -5,7 +5,7 @@ final class TestSessionPatchDataSource extends DatasourcePatchSession<MockModel>
   TestSessionPatchDataSource({required super.driver});
 
   @override
-  PatchParams? generateCallRequirement({required Params params}) {
+  PatchParams generateCallRequirement({required Params params}) {
     return const PatchParams();
   }
 }

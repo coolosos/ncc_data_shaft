@@ -88,7 +88,7 @@ void main() {
         final response = await driver.get(testUri);
 
         expect(response.statusCode, equals(404));
-        expect(response.body, equals('Not Found'));
+        expect(response.body!(), equals('Not Found'));
       },
     );
   });

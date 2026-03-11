@@ -5,7 +5,7 @@ final class TestHttpPutDataSource extends DatasourcePutHttp<MockModel>
   TestHttpPutDataSource({required super.driver});
 
   @override
-  PutParams? generateCallRequirement({required Params params}) {
+  PutParams generateCallRequirement({required Params params}) {
     return const PutParams();
   }
 }

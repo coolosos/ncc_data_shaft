@@ -92,7 +92,7 @@ final class GetPostRemoteDataSource extends DatasourceGetHttp<PostRemote> {
   final Map<String, String> pathModification = {'{id}': ''};
 
   @override
-  GetParams? generateCallRequirement({required RemotePostParams params}) {
+  GetParams generateCallRequirement({required RemotePostParams params}) {
     pathModification.update('{id}', (value) => params.postId.toString());
     return const GetParams();
   }
@@ -101,7 +101,7 @@ final class GetPostRemoteDataSource extends DatasourceGetHttp<PostRemote> {
   PostRemote transformation({
     required RequestResponse remoteResponse,
   }) =>
-      const PostRemote().decode(remoteResponse.body ?? '');
+      const PostRemote().decode(remoteResponse.body!());
 }
 
 final class PostRemoteRepository
