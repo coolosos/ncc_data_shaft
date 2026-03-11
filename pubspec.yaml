@@ -1,6 +1,6 @@
 name: ncc_data_shaft
 description: The official bridge between network_cool_client (ncc) and data_shaft. Provides standardized drivers and datasources for a clean data layer.
-version: 1.0.2
+version: 1.0.1
 
 homepage: https://github.com/coolosos/ncc_data_shaft
 repository: https://github.com/coolosos/ncc_data_shaft
