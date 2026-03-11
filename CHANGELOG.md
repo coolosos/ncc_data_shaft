@@ -1,3 +1,6 @@
+## 1.0.2
+### Added
+- Update dependency for implement covariant on transformation and checkResponse¡
 ## 1.0.1
 ### Added
 - Update dependencies of data_shaft for cool_bedrock breaking change update
