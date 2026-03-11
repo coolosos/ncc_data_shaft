@@ -5,7 +5,7 @@ final class TestHttpGetDataSource extends DatasourceGetHttp<MockModel>
   TestHttpGetDataSource({required super.driver});
 
   @override
-  GetParams? generateCallRequirement({required Params params}) {
+  GetParams generateCallRequirement({required Params params}) {
     return const GetParams();
   }
 }

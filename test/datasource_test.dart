@@ -42,7 +42,7 @@ void main() {
       () async {
         nccClientMock.responseBody = '{"message": "test-object"}';
 
-        final driver = SessionDataShaftDriver(client: nccClientMock);
+        final driver = HttpDataShaftDriver(client: nccClientMock);
         final dataSource = TestHttpGetDataSource(driver: driver);
 
         final result = await dataSource.call(params: const NoParams());
@@ -78,8 +78,6 @@ void main() {
 
         expect(result.message, equals('test-object'));
         switch (param) {
-          case null:
-            throw UnimplementedError();
           case DeleteParams():
             expect(sessionClientMock.lastMethod, equals('DELETE'));
             break;
@@ -105,8 +103,6 @@ void main() {
 
         expect(result.message, equals('test-object'));
         switch (param) {
-          case null:
-            throw UnimplementedError();
           case DeleteParams():
             expect(nccClient.lastMethod, equals('DELETE'));
             break;

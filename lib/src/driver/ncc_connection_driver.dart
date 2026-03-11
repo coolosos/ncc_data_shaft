@@ -17,7 +17,7 @@ enum RequestType { get, delete, post, put, patch, head }
 /// the configurations, interceptors, and session logic defined in `ncc`.
 /// {@endtemplate}
 base class NccConnectionDriver<CustomClient extends BaseClient>
-    implements RemoteDriver {
+    implements RemoteDriver<Response> {
   /// {@macro ncc_data_shaft.ncc_connection_driver}
   const NccConnectionDriver({required this.client});
 
@@ -72,17 +72,17 @@ base class NccConnectionDriver<CustomClient extends BaseClient>
 
   /// Converts an `ncc` [Response] into a `data_shaft` [RequestResponse].
   @protected
-  RequestResponse obtainResponse({required Response response}) {
-    return RequestResponse(
+  RequestResponse<Response> obtainResponse({required Response response}) {
+    return RequestResponse<Response>(
       statusCode: response.statusCode,
-      body: response.body,
+      body: () => response.body,
       headers: response.headers,
       originalResponse: response,
     );
   }
 
   /// Internal orchestrator for request execution and response transformation.
-  Future<RequestResponse> _executeRequest(
+  Future<RequestResponse<Response>> _executeRequest(
     Uri url, {
     required RequestType type,
     Map<String, String>? headers,
@@ -105,7 +105,7 @@ base class NccConnectionDriver<CustomClient extends BaseClient>
   // --- RemoteDriver Implementation ---
 
   @override
-  Future<RequestResponse> delete(
+  Future<RequestResponse<Response>> delete(
     Uri url, {
     Map<String, String>? headers,
     Object? body,
@@ -123,7 +123,7 @@ base class NccConnectionDriver<CustomClient extends BaseClient>
   }
 
   @override
-  Future<RequestResponse> get(
+  Future<RequestResponse<Response>> get(
     Uri url, {
     Map<String, String>? headers,
     Object? options,
@@ -137,7 +137,7 @@ base class NccConnectionDriver<CustomClient extends BaseClient>
   }
 
   @override
-  Future<RequestResponse> head(
+  Future<RequestResponse<Response>> head(
     Uri url, {
     Map<String, String>? headers,
     Object? options,
@@ -151,7 +151,7 @@ base class NccConnectionDriver<CustomClient extends BaseClient>
   }
 
   @override
-  Future<RequestResponse> patch(
+  Future<RequestResponse<Response>> patch(
     Uri url, {
     Map<String, String>? headers,
     Object? body,
@@ -169,7 +169,7 @@ base class NccConnectionDriver<CustomClient extends BaseClient>
   }
 
   @override
-  Future<RequestResponse> post(
+  Future<RequestResponse<Response>> post(
     Uri url, {
     Map<String, String>? headers,
     Object? body,
@@ -187,7 +187,7 @@ base class NccConnectionDriver<CustomClient extends BaseClient>
   }
 
   @override
-  Future<RequestResponse> put(
+  Future<RequestResponse<Response>> put(
     Uri url, {
     Map<String, String>? headers,
     Object? body,

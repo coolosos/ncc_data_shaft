@@ -5,7 +5,7 @@ final class TestHttpPostDataSource extends DatasourcePostHttp<MockModel>
   TestHttpPostDataSource({required super.driver});
 
   @override
-  PostParams? generateCallRequirement({required Params params}) {
+  PostParams generateCallRequirement({required Params params}) {
     return const PostParams();
   }
 }

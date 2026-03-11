@@ -5,7 +5,7 @@ final class TestSessionPostDataSource extends DatasourcePostSession<MockModel>
   TestSessionPostDataSource({required super.driver});
 
   @override
-  PostParams? generateCallRequirement({required Params params}) {
+  PostParams generateCallRequirement({required Params params}) {
     return const PostParams();
   }
 }

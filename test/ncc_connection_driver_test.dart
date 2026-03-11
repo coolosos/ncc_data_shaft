@@ -66,7 +66,7 @@ void main() {
       final response = await driver.get(testUri);
 
       expect(response.statusCode, equals(201));
-      expect(response.body, equals('{"id": 1}'));
+      expect(response.body!(), equals('{"id": 1}'));
     });
   });
 }

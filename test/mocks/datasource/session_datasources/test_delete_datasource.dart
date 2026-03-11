@@ -5,7 +5,7 @@ final class TestSessionDeleteDataSource
   TestSessionDeleteDataSource({required super.driver});
 
   @override
-  DeleteParams? generateCallRequirement({required Params params}) {
+  DeleteParams generateCallRequirement({required Params params}) {
     return const DeleteParams();
   }
 }

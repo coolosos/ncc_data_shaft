@@ -5,7 +5,7 @@ final class TestSessionGetDataSource extends DatasourceGetSession<MockModel>
   TestSessionGetDataSource({required super.driver});
 
   @override
-  GetParams? generateCallRequirement({required Params params}) {
+  GetParams generateCallRequirement({required Params params}) {
     return const GetParams();
   }
 }

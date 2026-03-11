@@ -5,7 +5,7 @@ final class TestHttpDeleteDataSource extends DatasourceDeleteHttp<MockModel>
   TestHttpDeleteDataSource({required super.driver});
 
   @override
-  DeleteParams? generateCallRequirement({required Params params}) {
+  DeleteParams generateCallRequirement({required Params params}) {
     return const DeleteParams();
   }
 }

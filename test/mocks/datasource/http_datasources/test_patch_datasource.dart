@@ -5,7 +5,7 @@ final class TestHttpPatchDataSource extends DatasourcePatchHttp<MockModel>
   TestHttpPatchDataSource({required super.driver});
 
   @override
-  PatchParams? generateCallRequirement({required Params params}) {
+  PatchParams generateCallRequirement({required Params params}) {
     return const PatchParams();
   }
 }

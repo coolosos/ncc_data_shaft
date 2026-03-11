@@ -1,3 +1,6 @@
+## 1.0.1
+### Added
+- Update dependencies and fixing error on mapping 
 ## 1.0.0 - 2026-02-23
 ### Added
 - **Initial Release**: Complete integration between `network_cool_client` and `data_shaft`.
