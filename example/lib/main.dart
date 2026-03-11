@@ -56,10 +56,10 @@ final class PostRemote extends Codable<String, PostRemote> {
   JsonCodec? get serializer => null;
 
   @override
-  Encoding? get stringEncoding => null;
+  bool? get stringify => true;
 
   @override
-  bool? get stringify => true;
+  Encoding? get encoding => null;
 }
 
 final class RemotePostParams extends Params {
