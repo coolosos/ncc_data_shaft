@@ -1,6 +1,6 @@
 ## 1.0.2
 ### Added
-- Update dependencies and fixing error on mapping 
+- Update dependencies of data_shaft for cool_bedrock breaking change update
 ## 1.0.1
 ### Added
 - Update dependencies and fixing error on mapping 
