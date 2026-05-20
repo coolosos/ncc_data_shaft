@@ -145,7 +145,7 @@ Customize logging by implementing `HttpDatasourceObserver` or `RepositoryObserve
 ```dart
 DatasourceObserverInstances.httpDatasourceObserver = MyCustomLogStrategy();
 ```
----npx skills add https://github.com/dart-lang/skills --skill dart-add-unit-test
+---
 
 ## 🤝 Contributing
 
