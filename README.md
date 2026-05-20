@@ -76,7 +76,36 @@ class CreateOrderDataSource extends DatasourcePostSession<OrderModel> {
 }
 ```
 
-### 3. Repository Usage
+### 3. Path Variables vs Query Parameters
+The package distinguishes between modifying the URL path and adding query parameters:
+
+*   **Path Variables**: Use the `pathModification` map in your DataSource class to replace placeholders like `{id}` in the `path`.
+*   **Query Parameters**: Use `urlParams` inside `GetParams`, `PostParams`, etc., to append key-value pairs to the URL (e.g., `?search=term`).
+
+```dart
+class GetUserDataSource extends DatasourceGetHttp<UserRemote> {
+  GetUserDataSource({required super.driver});
+
+  @override
+  String? get path => 'users/{id}';
+
+  @override
+  final Map<String, String> pathModification = {'{id}': ''};
+
+  @override
+  GetParams generateCallRequirement({required UserParams params}) {
+    // 1. Update Path Placeholder
+    pathModification.update('{id}', (value) => params.userId.toString());
+    
+    return const GetParams(
+      // 2. Append Query Parameters (?active=true)
+      urlParams: {'active': 'true'},
+    );
+  }
+}
+```
+
+### 4. Repository Usage
 Wrap your DataSource in a data_shaft repository. The repository catches network exceptions and converts them into controlled domain errors.
 ```dart
 final repository = SafeRepositoryDatasourceCallable(
@@ -116,7 +145,7 @@ Customize logging by implementing `HttpDatasourceObserver` or `RepositoryObserve
 ```dart
 DatasourceObserverInstances.httpDatasourceObserver = MyCustomLogStrategy();
 ```
----
+---npx skills add https://github.com/dart-lang/skills --skill dart-add-unit-test
 
 ## 🤝 Contributing
 
