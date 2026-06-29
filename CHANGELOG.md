@@ -20,6 +20,9 @@
 
 - Removed redundant `checkInformation` overrides in `DatasourceNcc*` base classes
 
+### Added
+- Skill for AI-Assisted Development
+
 ## 1.0.2
 ### Added
 - Update dependency for implement covariant on transformation and checkResponse
