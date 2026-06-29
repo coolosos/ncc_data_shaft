@@ -32,12 +32,5 @@ abstract base class DatasourceNccPut<
     required Map<String, String>? requestHeaders,
     required Uri? requestUri,
     Object? requestBody,
-  }) {
-    return super.checkInformation(
-      requestResponse: requestResponse,
-      requestHeaders: requestHeaders,
-      requestUri: requestUri,
-      requestBody: requestBody,
-    );
-  }
+  });
 }

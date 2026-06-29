@@ -13,11 +13,11 @@ import 'package:ncc_data_shaft/src/driver/ncc_connection_driver.dart';
 /// [SessionDataShaftDriver] ensures that session-specific headers or tokens
 /// are included in the request.
 /// {@endtemplate}
-abstract base class DatasourceDeleteSession<
+abstract base class DatasourceSessionDelete<
         RemoteObject extends Codable<Object, RemoteObject>>
     extends DatasourceNccDelete<RemoteObject, SessionDataShaftDriver> {
   /// {@macro datasource_delete_session}
   ///
   /// Requires a [SessionDataShaftDriver] instance to perform the authenticated deletion.
-  DatasourceDeleteSession({required super.driver});
+  DatasourceSessionDelete({required super.driver});
 }

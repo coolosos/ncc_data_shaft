@@ -13,12 +13,12 @@ import 'package:ncc_data_shaft/src/driver/ncc_connection_driver.dart';
 /// are correctly applied to the request, while the [RemoteObject]
 /// provides the full resource representation for the update.
 /// {@endtemplate}
-abstract base class DatasourcePutSession<
+abstract base class DatasourceSessionPut<
         RemoteObject extends Codable<Object, RemoteObject>>
     extends DatasourceNccPut<RemoteObject, SessionDataShaftDriver> {
   /// {@macro datasource_put_session}
   ///
   /// Requires a [SessionDataShaftDriver] to execute the authenticated
   /// replacement request.
-  DatasourcePutSession({required super.driver});
+  DatasourceSessionPut({required super.driver});
 }

@@ -1,6 +1,6 @@
 part of '../implementation_datasource.dart';
 
-final class TestHttpPostDataSource extends DatasourcePostHttp<MockModel>
+final class TestHttpPostDataSource extends DatasourceHttpPost<MockModel>
     with ImplementationDatasource {
   TestHttpPostDataSource({required super.driver});
 
