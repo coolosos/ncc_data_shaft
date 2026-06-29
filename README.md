@@ -147,6 +147,12 @@ DatasourceObserverInstances.httpDatasourceObserver = MyCustomLogStrategy();
 ```
 ---
 
+## 🤖 AI-Assisted Development
+
+This repository includes an [AI assistant skill](https://github.com/coolosos/ncc_data_shaft/tree/main/skills/ncc-data-shaft-helper) designed to help generate DataSources, Repositories, and Models following the project conventions and best practices.
+
+---
+
 ## 🤝 Contributing
 
 Contributions are welcome!

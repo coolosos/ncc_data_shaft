@@ -19,6 +19,7 @@
 ### Internal
 
 - Removed redundant `checkInformation` overrides in `DatasourceNcc*` base classes
+- Added Skill
 
 ## 1.0.2
 ### Added
