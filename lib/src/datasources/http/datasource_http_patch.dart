@@ -1,4 +1,7 @@
+import 'dart:async';
+
 import 'package:data_shaft/data_shaft.dart';
+import 'package:ncc/ncc.dart';
 import 'package:ncc_data_shaft/src/datasources/datasource_ncc.dart';
 import 'package:ncc_data_shaft/src/driver/ncc_connection_driver.dart';
 
@@ -14,11 +17,24 @@ import 'package:ncc_data_shaft/src/driver/ncc_connection_driver.dart';
 /// the [HttpDataShaftDriver] manages the underlying network request without
 /// session overhead.
 /// {@endtemplate}
-abstract base class DatasourcePatchHttp<
+abstract base class DatasourceHttpPatch<
         RemoteObject extends Codable<Object, RemoteObject>>
     extends DatasourceNccPatch<RemoteObject, HttpDataShaftDriver> {
   /// {@macro datasource_patch_http}
   ///
   /// Requires an [HttpDataShaftDriver] to execute the partial update request.
-  DatasourcePatchHttp({required super.driver});
+  DatasourceHttpPatch({required super.driver});
+
+  @override
+  FutureOr<RemoteObject> transformation({
+    required RequestResponse<Response> remoteResponse,
+  });
+
+  @override
+  FutureOr<RemoteObject> checkInformation({
+    required RequestResponse<Response> requestResponse,
+    required Map<String, String>? requestHeaders,
+    required Uri? requestUri,
+    Object? requestBody,
+  });
 }

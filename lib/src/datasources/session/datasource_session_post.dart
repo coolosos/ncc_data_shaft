@@ -13,11 +13,11 @@ import 'package:ncc_data_shaft/src/driver/ncc_connection_driver.dart';
 /// The [RemoteObject] handles the serialization of the payload and the
 /// mapping of the server's response.
 /// {@endtemplate}
-abstract base class DatasourcePostSession<
+abstract base class DatasourceSessionPost<
         RemoteObject extends Codable<Object, RemoteObject>>
     extends DatasourceNccPost<RemoteObject, SessionDataShaftDriver> {
   /// {@macro datasource_post_session}
   ///
   /// Requires a [SessionDataShaftDriver] to perform the authenticated creation.
-  DatasourcePostSession({required super.driver});
+  DatasourceSessionPost({required super.driver});
 }

@@ -13,12 +13,12 @@ import 'package:ncc_data_shaft/src/driver/ncc_connection_driver.dart';
 /// while the [SessionDataShaftDriver] ensures the request is executed
 /// within the current `ncc` session.
 /// {@endtemplate}
-abstract base class DatasourcePatchSession<
+abstract base class DatasourceSessionPatch<
         RemoteObject extends Codable<Object, RemoteObject>>
     extends DatasourceNccPatch<RemoteObject, SessionDataShaftDriver> {
   /// {@macro datasource_patch_session}
   ///
   /// Requires a [SessionDataShaftDriver] to execute the authenticated
   /// partial update request.
-  DatasourcePatchSession({required super.driver});
+  DatasourceSessionPatch({required super.driver});
 }

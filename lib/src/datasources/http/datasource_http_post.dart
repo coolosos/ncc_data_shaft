@@ -1,4 +1,7 @@
+import 'dart:async';
+
 import 'package:data_shaft/data_shaft.dart';
+import 'package:ncc/ncc.dart' show Response;
 import 'package:ncc_data_shaft/src/datasources/datasource_ncc.dart';
 import 'package:ncc_data_shaft/src/driver/ncc_connection_driver.dart';
 
@@ -13,11 +16,24 @@ import 'package:ncc_data_shaft/src/driver/ncc_connection_driver.dart';
 /// mapping of the server response, while the [HttpDataShaftDriver]
 /// provides the standard HTTP transport.
 /// {@endtemplate}
-abstract base class DatasourcePostHttp<
+abstract base class DatasourceHttpPost<
         RemoteObject extends Codable<Object, RemoteObject>>
     extends DatasourceNccPost<RemoteObject, HttpDataShaftDriver> {
   /// {@macro datasource_post_http}
   ///
   /// Requires an [HttpDataShaftDriver] instance to perform the resource creation.
-  DatasourcePostHttp({required super.driver});
+  DatasourceHttpPost({required super.driver});
+
+  @override
+  FutureOr<RemoteObject> transformation({
+    required RequestResponse<Response> remoteResponse,
+  });
+
+  @override
+  FutureOr<RemoteObject> checkInformation({
+    required RequestResponse<Response> requestResponse,
+    required Map<String, String>? requestHeaders,
+    required Uri? requestUri,
+    Object? requestBody,
+  });
 }

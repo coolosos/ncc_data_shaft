@@ -12,8 +12,8 @@
   - `HttpDataShaftDriver`: Specifically designed for public API communication using `NccClient`.
   - `SessionDataShaftDriver`: Specifically designed for authenticated communication using `SessionClient` (handles token injection and renewal).
 - **Type-Safe DataSources**:
-  - **Public Context**: Added `DatasourceGetHttp`, `DatasourcePostHttp`, `DatasourcePutHttp`, `DatasourcePatchHttp`, and `DatasourceDeleteHttp`.
-  - **Session Context**: Added `DatasourceGetSession`, `DatasourcePostSession`, `DatasourcePutSession`, `DatasourcePatchSession`, and `DatasourceDeleteSession`.
+  - **Public Context**: Added `DatasourceHttpGet`, `DatasourceHttpPost`, `DatasourceHttpPut`, `DatasourceHttpPatch`, and `DatasourceHttpDelete`.
+  - **Session Context**: Added `DatasourceSessionGet`, `DatasourceSessionPost`, `DatasourceSessionPut`, `DatasourceSessionPatch`, and `DatasourceSessionDelete`.
 - **Core Abstractions**: Base classes `DatasourceNccGet`, `DatasourceNccPost`, etc., to allow custom driver extensions.
 - **Barrel Exports**: Organized export system (`datasource_http.dart`, `datasource_session.dart`, `driver.dart`) to simplify package usage.
 - **Enhanced DX**: Re-export of `Codable` from `data_shaft` to reduce boilerplate in domain models.

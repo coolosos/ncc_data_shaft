@@ -1,4 +1,7 @@
+import 'dart:async';
+
 import 'package:data_shaft/data_shaft.dart';
+import 'package:ncc/ncc.dart';
 import 'package:ncc_data_shaft/src/datasources/datasource_ncc.dart';
 import 'package:ncc_data_shaft/src/driver/ncc_connection_driver.dart';
 
@@ -12,11 +15,24 @@ import 'package:ncc_data_shaft/src/driver/ncc_connection_driver.dart';
 /// The [RemoteObject] handles the deserialization of the fetched data,
 /// while the [HttpDataShaftDriver] manages the standard HTTP communication.
 /// {@endtemplate}
-abstract base class DatasourceGetHttp<
+abstract base class DatasourceHttpGet<
         RemoteObject extends Codable<Object, RemoteObject>>
     extends DatasourceNccGet<RemoteObject, HttpDataShaftDriver> {
   /// {@macro datasource_get_http}
   ///
   /// Requires an [HttpDataShaftDriver] to execute the data retrieval request.
-  DatasourceGetHttp({required super.driver});
+  DatasourceHttpGet({required super.driver});
+
+  @override
+  FutureOr<RemoteObject> transformation({
+    required RequestResponse<Response> remoteResponse,
+  });
+
+  @override
+  FutureOr<RemoteObject> checkInformation({
+    required RequestResponse<Response> requestResponse,
+    required Map<String, String>? requestHeaders,
+    required Uri? requestUri,
+    Object? requestBody,
+  });
 }

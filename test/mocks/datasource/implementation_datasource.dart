@@ -16,7 +16,7 @@ part 'session_datasources/test_put_datasource.dart';
 mixin ImplementationDatasource<RemoteDriver extends NccConnectionDriver>
     on DatasourceRemote<MockModel, RemoteDriver> {
   @override
-  List<int> get admissibleStatusCode => [200];
+  Set<int> get admissibleStatusCode => {200};
 
   @override
   String get host => 'https://test.com';

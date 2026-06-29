@@ -1,6 +1,6 @@
 part of '../implementation_datasource.dart';
 
-final class TestSessionPostDataSource extends DatasourcePostSession<MockModel>
+final class TestSessionPostDataSource extends DatasourceSessionPost<MockModel>
     with ImplementationDatasource {
   TestSessionPostDataSource({required super.driver});
 
