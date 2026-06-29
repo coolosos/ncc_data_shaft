@@ -1,6 +1,27 @@
+## 2.0.0
+
+### Breaking Changes
+
+- **Renamed HTTP Datasource classes** to align with file naming convention:
+  - `DatasourceGetHttp` → `DatasourceHttpGet`
+  - `DatasourcePostHttp` → `DatasourceHttpPost`
+  - `DatasourcePutHttp` → `DatasourceHttpPut`
+  - `DatasourcePatchHttp` → `DatasourceHttpPatch`
+  - `DatasourceDeleteHttp` → `DatasourceHttpDelete`
+- **Renamed Session Datasource classes** to align with file naming convention:
+  - `DatasourceGetSession` → `DatasourceSessionGet`
+  - `DatasourcePostSession` → `DatasourceSessionPost`
+  - `DatasourcePutSession` → `DatasourceSessionPut`
+  - `DatasourcePatchSession` → `DatasourceSessionPatch`
+  - `DatasourceDeleteSession` → `DatasourceSessionDelete`
+
+### Internal
+
+- Removed redundant `checkInformation` overrides in `DatasourceNcc*` base classes
+
 ## 1.0.2
 ### Added
-- Update dependency for implement covariant on transformation and checkResponse¡
+- Update dependency for implement covariant on transformation and checkResponse
 ## 1.0.1
 ### Added
 - Update dependencies of data_shaft for cool_bedrock breaking change update
