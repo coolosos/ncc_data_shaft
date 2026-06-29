@@ -19,7 +19,7 @@ This package provides a standardized RemoteDriver implementation powered by the 
 
 ## Key Features
 
-* 🛡️ Context-Strict Typing: The compiler prevents you from using a public client for an endpoint requiring a session (e.g., DatasourceGetSession vs DatasourceGetHttp).
+* 🛡️ Context-Strict Typing: The compiler prevents you from using a public client for an endpoint requiring a session (e.g., DatasourceSessionGet vs DatasourceHttpGet).
 * 🚀 Zero Boilerplate: Includes HttpDataShaftDriver and SessionDataShaftDriver ready to use.
 * 📦 All-in-One: Seamlessly bridges data_shaft repositories with ncc session logic and interceptors.
 * 🔄 Transparent Auto-Renewal: Requests failing due to expired tokens are paused; ncc handles renewal, and data_shaft retries the request seamlessly.
@@ -48,9 +48,9 @@ final sessionDriver = SessionDataShaftDriver(client: authClient);
 Create data sources by extending the specific verb and context needed:
 
 #### Public GET Request
-Use DatasourceGetHttp to ensure this endpoint uses the session-less driver.
+Use DatasourceHttpGet to ensure this endpoint uses the session-less driver.
 ```dart
-class GetProductsDataSource extends DatasourceGetHttp<ProductModel> {
+class GetProductsDataSource extends DatasourceHttpGet<ProductModel> {
   GetProductsDataSource({required super.driver});
 
   @override
@@ -61,9 +61,9 @@ class GetProductsDataSource extends DatasourceGetHttp<ProductModel> {
 ```
 
 #### Authenticated POST Request
-Use DatasourcePostSession for protected endpoints. The compiler will demand a session driver, ensuring tokens are attached to the headers.
+Use DatasourceSessionPost for protected endpoints. The compiler will demand a session driver, ensuring tokens are attached to the headers.
 ```dart
-class CreateOrderDataSource extends DatasourcePostSession<OrderModel> {
+class CreateOrderDataSource extends DatasourceSessionPost<OrderModel> {
   CreateOrderDataSource({required super.driver});
 
   @override
@@ -127,11 +127,11 @@ The package includes base classes for all standard HTTP operations, strictly tie
 
 | Operation | Public (HttpDataShaftDriver) | Session (SessionDataShaftDriver) |
 | :--- | :--- | :--- |
-| GET | DatasourceGetHttp | DatasourceGetSession |
-| POST | DatasourcePostHttp | DatasourcePostSession |
-| PUT | DatasourcePutHttp | DatasourcePutSession |
-| PATCH | DatasourcePatchHttp | DatasourcePatchSession |
-| DELETE | DatasourceDeleteHttp | DatasourceDeleteSession |
+| GET | DatasourceHttpGet | DatasourceSessionGet |
+| POST | DatasourceHttpPost | DatasourceSessionPost |
+| PUT | DatasourceHttpPut | DatasourceSessionPut |
+| PATCH | DatasourceHttpPatch | DatasourceSessionPatch |
+| DELETE | DatasourceHttpDelete | DatasourceSessionDelete |
 
 ---
 

@@ -18,7 +18,7 @@ void main() {
     });
 
     test(
-      'DatasourceGetHttp should use driver to fetch and decode data',
+      'DatasourceHttpGet should use driver to fetch and decode data',
       () async {
         nccClient.responseBody = '{"message": "hello"}';
         final dataSource = TestHttpGetDataSource(driver: driver);
@@ -38,7 +38,7 @@ void main() {
     });
 
     test(
-      'DatasourceGetHttp should use driver to fetch and decode data',
+      'DatasourceHttpGet should use driver to fetch and decode data',
       () async {
         nccClientMock.responseBody = '{"message": "test-object"}';
 

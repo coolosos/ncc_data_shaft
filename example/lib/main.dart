@@ -73,14 +73,14 @@ final class RemotePostParams extends Params {
   List<Object?> get props => [postId];
 }
 
-final class GetPostRemoteDataSource extends DatasourceGetHttp<PostRemote> {
+final class GetPostRemoteDataSource extends DatasourceHttpGet<PostRemote> {
   GetPostRemoteDataSource({required super.driver});
 
   @override
-  List<int> get admissibleStatusCode => [200];
+  Set<int> get admissibleStatusCode => {200};
 
   @override
-  List<int> get inadmissibleStatusCode => [400, 404, 403];
+  Set<int> get inadmissibleStatusCode => {400, 404, 403};
 
   @override
   String get host => 'https://jsonplaceholder.typicode.com/';
