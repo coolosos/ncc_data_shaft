@@ -19,7 +19,9 @@
 ### Internal
 
 - Removed redundant `checkInformation` overrides in `DatasourceNcc*` base classes
-- Added Skill
+
+### Added
+- Skill for AI-Assisted Development
 
 ## 1.0.2
 ### Added
