@@ -2,6 +2,7 @@
 
 ### Breaking Changes
 
+- **Updated `data_shaft` dependency** to `^2.0.0`. This includes its own breaking changes from `data_shaft` 1.x (e.g., `admissibleStatusCode` now returns `Set<int>` instead of `List<int>`, and other changes to `Codable`, `RemoteDriver`, and response types). Refer to the [data_shaft changelog](https://pub.dev/packages/data_shaft/changelog) for details.
 - **Renamed HTTP Datasource classes** to align with file naming convention:
   - `DatasourceGetHttp` → `DatasourceHttpGet`
   - `DatasourcePostHttp` → `DatasourceHttpPost`
