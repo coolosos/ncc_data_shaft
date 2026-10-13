@@ -77,6 +77,7 @@ For specific code implementations, tests, and **DI/Serialization/Logging** patte
 | Operation | Public (Http) | Session (Authenticated) |
 | :--- | :--- | :--- |
 | GET | `DatasourceHttpGet` | `DatasourceSessionGet` |
+| HEAD | `DatasourceHttpHead` | `DatasourceSessionHead` |
 | POST | `DatasourceHttpPost` | `DatasourceSessionPost` |
 | PUT | `DatasourceHttpPut` | `DatasourceSessionPut` |
 | PATCH | `DatasourceHttpPatch` | `DatasourceSessionPatch` |

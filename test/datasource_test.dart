@@ -80,19 +80,16 @@ void main() {
         switch (param) {
           case DeleteParams():
             expect(sessionClientMock.lastMethod, equals('DELETE'));
-            break;
           case GetParams():
             expect(sessionClientMock.lastMethod, equals('GET'));
-            break;
+          case HeadParams():
+            expect(sessionClientMock.lastMethod, equals('HEAD'));
           case PatchParams():
             expect(sessionClientMock.lastMethod, equals('PATCH'));
-            break;
           case PostParams():
             expect(sessionClientMock.lastMethod, equals('POST'));
-            break;
           case PutParams():
             expect(sessionClientMock.lastMethod, equals('PUT'));
-            break;
         }
       }
 
@@ -105,19 +102,16 @@ void main() {
         switch (param) {
           case DeleteParams():
             expect(nccClient.lastMethod, equals('DELETE'));
-            break;
           case GetParams():
             expect(nccClient.lastMethod, equals('GET'));
-            break;
+          case HeadParams():
+            expect(nccClient.lastMethod, equals('HEAD'));
           case PatchParams():
             expect(nccClient.lastMethod, equals('PATCH'));
-            break;
           case PostParams():
             expect(nccClient.lastMethod, equals('POST'));
-            break;
           case PutParams():
             expect(nccClient.lastMethod, equals('PUT'));
-            break;
         }
       }
     });

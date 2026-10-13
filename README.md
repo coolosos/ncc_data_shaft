@@ -83,7 +83,7 @@ The package distinguishes between modifying the URL path and adding query parame
 *   **Query Parameters**: Use `urlParams` inside `GetParams`, `PostParams`, etc., to append key-value pairs to the URL (e.g., `?search=term`).
 
 ```dart
-class GetUserDataSource extends DatasourceGetHttp<UserRemote> {
+class GetUserDataSource extends DatasourceHttpGet<UserRemote> {
   GetUserDataSource({required super.driver});
 
   @override
@@ -128,6 +128,7 @@ The package includes base classes for all standard HTTP operations, strictly tie
 | Operation | Public (HttpDataShaftDriver) | Session (SessionDataShaftDriver) |
 | :--- | :--- | :--- |
 | GET | DatasourceHttpGet | DatasourceSessionGet |
+| HEAD | DatasourceHttpHead | DatasourceSessionHead |
 | POST | DatasourceHttpPost | DatasourceSessionPost |
 | PUT | DatasourceHttpPut | DatasourceSessionPut |
 | PATCH | DatasourceHttpPatch | DatasourceSessionPatch |
