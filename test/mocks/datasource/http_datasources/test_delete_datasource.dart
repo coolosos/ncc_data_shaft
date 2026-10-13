@@ -2,7 +2,7 @@ part of '../implementation_datasource.dart';
 
 final class TestHttpDeleteDataSource extends DatasourceHttpDelete<MockModel>
     with ImplementationDatasource {
-  TestHttpDeleteDataSource({required super.driver});
+  new({required super.driver});
 
   @override
   DeleteParams generateCallRequirement({required Params params}) {

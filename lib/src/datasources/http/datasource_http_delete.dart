@@ -17,12 +17,13 @@ import 'package:ncc_data_shaft/src/driver/ncc_connection_driver.dart';
 /// [HttpDataShaftDriver] provides the standard HTTP transport layer.
 /// {@endtemplate}
 abstract base class DatasourceHttpDelete<
-        RemoteObject extends Codable<Object, RemoteObject>>
+  RemoteObject extends Codable<Object, RemoteObject>
+>
     extends DatasourceNccDelete<RemoteObject, HttpDataShaftDriver> {
   /// {@macro datasource_delete_http}
   ///
   /// Requires an [HttpDataShaftDriver] instance to perform the network operation.
-  DatasourceHttpDelete({required super.driver});
+  new({required super.driver});
 
   @override
   FutureOr<RemoteObject> transformation({

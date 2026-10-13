@@ -4,7 +4,7 @@ import 'package:ncc/ncc.dart';
 
 // ignore: must_be_immutable MOCK
 final class NccClientMock extends NccClient {
-  NccClientMock({required super.client}) : super(id: 'mock-client');
+  new({required super.client}) : super(id: 'mock-client');
 
   Uri? lastUrl;
   String? lastMethod;
@@ -89,7 +89,7 @@ final class NccClientMock extends NccClient {
 
 // ignore: must_be_immutable MOCK
 base class SessionClientMock extends SessionClient {
-  SessionClientMock({required super.client}) : super(id: 'mock-client');
+  new({required super.client}) : super(id: 'mock-client');
 
   Uri? lastUrl;
   String? lastMethod;
@@ -191,11 +191,11 @@ base class SessionClientMock extends SessionClient {
   }
 }
 
-class NetworkThrowException implements Exception {}
+class NetworkThrowException implements Exception;
 
 // ignore: must_be_immutable MOCK
 final class ExceptionThrowingClient extends SessionClientMock {
-  ExceptionThrowingClient({required super.client});
+  new({required super.client});
 
   @override
   Future<Response> get(Uri url, {Map<String, String>? headers}) async {

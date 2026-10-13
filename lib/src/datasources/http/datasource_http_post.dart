@@ -17,12 +17,13 @@ import 'package:ncc_data_shaft/src/driver/ncc_connection_driver.dart';
 /// provides the standard HTTP transport.
 /// {@endtemplate}
 abstract base class DatasourceHttpPost<
-        RemoteObject extends Codable<Object, RemoteObject>>
+  RemoteObject extends Codable<Object, RemoteObject>
+>
     extends DatasourceNccPost<RemoteObject, HttpDataShaftDriver> {
   /// {@macro datasource_post_http}
   ///
   /// Requires an [HttpDataShaftDriver] instance to perform the resource creation.
-  DatasourceHttpPost({required super.driver});
+  new({required super.driver});
 
   @override
   FutureOr<RemoteObject> transformation({

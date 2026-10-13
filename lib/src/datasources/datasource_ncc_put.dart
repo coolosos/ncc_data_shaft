@@ -13,13 +13,14 @@ import 'package:ncc_data_shaft/ncc_data_shaft.dart';
 /// updated, while [NccDriver] manages the HTTP PUT execution.
 /// {@endtemplate}
 abstract base class DatasourceNccPut<
-        RemoteObject extends Codable<Object, RemoteObject>,
-        NccDriver extends NccConnectionDriver>
+  RemoteObject extends Codable<Object, RemoteObject>,
+  NccDriver extends NccConnectionDriver
+>
     extends DatasourcePutRemote<RemoteObject, NccDriver> {
   /// {@macro datasource_ncc_put}
   ///
   /// Requires an [NccDriver] instance to execute the resource replacement request.
-  DatasourceNccPut({required super.driver});
+  new({required super.driver});
 
   @override
   FutureOr<RemoteObject> transformation({

@@ -13,13 +13,14 @@ import 'package:ncc_data_shaft/ncc_data_shaft.dart';
 /// the [NccDriver] manages the underlying HTTP GET request.
 /// {@endtemplate}
 abstract base class DatasourceNccGet<
-        RemoteObject extends Codable<Object, RemoteObject>,
-        NccDriver extends NccConnectionDriver>
+  RemoteObject extends Codable<Object, RemoteObject>,
+  NccDriver extends NccConnectionDriver
+>
     extends DatasourceGetRemote<RemoteObject, NccDriver> {
   /// {@macro datasource_ncc_get}
   ///
   /// Requires an [NccDriver] to execute the retrieval request.
-  DatasourceNccGet({required super.driver});
+  new({required super.driver});
 
   @override
   FutureOr<RemoteObject> transformation({

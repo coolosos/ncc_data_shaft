@@ -13,14 +13,15 @@ import 'package:ncc_data_shaft/ncc_data_shaft.dart';
 /// ensures compatibility with `ncc`'s transport layer.
 /// {@endtemplate}
 abstract base class DatasourceNccDelete<
-        RemoteObject extends Codable<Object, RemoteObject>,
-        NccDriver extends NccConnectionDriver>
+  RemoteObject extends Codable<Object, RemoteObject>,
+  NccDriver extends NccConnectionDriver
+>
     extends DatasourceDeleteRemote<RemoteObject, NccDriver> {
   /// {@macro datasource_ncc_delete}
   ///
   /// Requires an [NccDriver] instance (e.g., `HttpDataShaftDriver` or
   /// `SessionDataShaftDriver`) to perform the network operation.
-  DatasourceNccDelete({required super.driver});
+  new({required super.driver});
 
   @override
   FutureOr<RemoteObject> transformation({
