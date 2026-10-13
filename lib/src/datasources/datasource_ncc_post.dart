@@ -14,13 +14,14 @@ import 'package:ncc_data_shaft/ncc_data_shaft.dart';
 /// the network execution.
 /// {@endtemplate}
 abstract base class DatasourceNccPost<
-        RemoteObject extends Codable<Object, RemoteObject>,
-        NccDriver extends NccConnectionDriver>
+  RemoteObject extends Codable<Object, RemoteObject>,
+  NccDriver extends NccConnectionDriver
+>
     extends DatasourcePostRemote<RemoteObject, NccDriver> {
   /// {@macro datasource_ncc_post}
   ///
   /// Requires an [NccDriver] to execute the resource creation request.
-  DatasourceNccPost({required super.driver});
+  new({required super.driver});
 
   @override
   FutureOr<RemoteObject> transformation({

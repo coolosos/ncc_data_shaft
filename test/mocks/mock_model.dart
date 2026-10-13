@@ -1,7 +1,7 @@
 import 'package:data_shaft/data_shaft.dart';
 
 final class MockModel extends Codable<String, MockModel> {
-  const MockModel({this.message});
+  const new({this.message});
   final String? message;
 
   @override

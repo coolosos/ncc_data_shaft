@@ -2,7 +2,7 @@ part of '../implementation_datasource.dart';
 
 final class TestSessionPutDataSource extends DatasourceSessionPut<MockModel>
     with ImplementationDatasource {
-  TestSessionPutDataSource({required super.driver});
+  new({required super.driver});
 
   @override
   PutParams generateCallRequirement({required Params params}) {

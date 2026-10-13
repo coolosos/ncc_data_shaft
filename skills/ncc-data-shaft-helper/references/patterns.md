@@ -118,7 +118,7 @@ final class UserDataSource
   UserDataSource({required super.driver});
 
   @override
-  List<int> get admissibleStatusCode => [200];
+  Set<int> get admissibleStatusCode => {200};
 
   @override
   String get host => 'https://api.example.com/';
@@ -137,7 +137,9 @@ final class UserDataSource
   }
 
   @override
-  UserRemote transformation({required RequestResponse remoteResponse}) =>
+  UserRemote transformation({
+    required RequestResponse<Response> remoteResponse,
+  }) =>
       const UserRemote().decode(remoteResponse.body!());
 }
 ```
@@ -150,7 +152,7 @@ final class UpdateUserDataSource
   UpdateUserDataSource({required super.driver});
 
   @override
-  List<int> get admissibleStatusCode => [200];
+  Set<int> get admissibleStatusCode => {200};
 
   @override
   String get host => 'https://api.example.com/';
@@ -171,7 +173,9 @@ final class UpdateUserDataSource
   }
 
   @override
-  UserRemote transformation({required RequestResponse remoteResponse}) =>
+  UserRemote transformation({
+    required RequestResponse<Response> remoteResponse,
+  }) =>
       const UserRemote().decode(remoteResponse.body!());
 }
 ```
@@ -220,7 +224,7 @@ class GlobalNetworkLogger implements HttpDatasourceObserver {
   }
 
   @override
-  void onResponseSuccess(RequestResponse response) {
+  void onResponseSuccess(RequestResponse<Response> response) {
     log('✅ SUCCESS [${response.statusCode}]: ${response.originalResponse.url}', name: 'NETWORK');
   }
 
