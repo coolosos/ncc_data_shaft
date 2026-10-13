@@ -1,8 +1,9 @@
 part of '../implementation_datasource.dart';
 
 final class TestSessionDeleteDataSource
-    extends DatasourceSessionDelete<MockModel> with ImplementationDatasource {
-  TestSessionDeleteDataSource({required super.driver});
+    extends DatasourceSessionDelete<MockModel>
+    with ImplementationDatasource {
+  new({required super.driver});
 
   @override
   DeleteParams generateCallRequirement({required Params params}) {

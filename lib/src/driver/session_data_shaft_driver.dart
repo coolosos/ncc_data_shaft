@@ -20,5 +20,5 @@ base class SessionDataShaftDriver extends NccConnectionDriver<SessionClient> {
   /// // The driver will now use the authenticated session for all requests
   /// final driver = SessionDataShaftDriver(client: sessionClient);
   /// ```
-  SessionDataShaftDriver({required super.client});
+  new({required super.client});
 }

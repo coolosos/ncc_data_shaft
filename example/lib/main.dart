@@ -10,9 +10,7 @@ Future<void> main(List<String> args) async {
   );
 
   //2. Create DATA classes
-  final datasource = GetPostRemoteDataSource(
-    driver: driver,
-  );
+  final datasource = GetPostRemoteDataSource(driver: driver);
   final repository = PostRemoteRepository(dataSource: datasource);
 
   //3. Execute repository call
@@ -27,7 +25,7 @@ Future<void> main(List<String> args) async {
 }
 
 final class PostRemote extends Codable<String, PostRemote> {
-  const PostRemote({this.body = '', this.id = 0, this.title = ''});
+  const new({this.body = '', this.id = 0, this.title = ''});
   final int id;
   final String title;
   final String body;
@@ -46,11 +44,7 @@ final class PostRemote extends Codable<String, PostRemote> {
   }
 
   @override
-  List<Object?> get props => [
-        id,
-        title,
-        body,
-      ];
+  List<Object?> get props => [id, title, body];
 
   @override
   JsonCodec? get serializer => null;
@@ -63,7 +57,7 @@ final class PostRemote extends Codable<String, PostRemote> {
 }
 
 final class RemotePostParams extends Params {
-  const RemotePostParams({required this.postId});
+  const new({required this.postId});
 
   final int postId;
   @override
@@ -74,7 +68,7 @@ final class RemotePostParams extends Params {
 }
 
 final class GetPostRemoteDataSource extends DatasourceHttpGet<PostRemote> {
-  GetPostRemoteDataSource({required super.driver});
+  new({required super.driver});
 
   @override
   Set<int> get admissibleStatusCode => {200};
@@ -99,16 +93,14 @@ final class GetPostRemoteDataSource extends DatasourceHttpGet<PostRemote> {
 
   @override
   PostRemote transformation({
-    required RequestResponse remoteResponse,
-  }) =>
-      const PostRemote().decode(remoteResponse.body!());
+    required RequestResponse<Response> remoteResponse,
+  }) => const PostRemote().decode(remoteResponse.body!());
 }
 
 final class PostRemoteRepository
     extends DeduplicationCacheRepository<PostRemote, GetPostRemoteDataSource> {
-  PostRemoteRepository({
-    required super.dataSource,
-  }) : super(refreshDuration: const Duration(minutes: 5));
+  new({required super.dataSource})
+    : super(refreshDuration: const Duration(minutes: 5));
 
   @override
   Future<Either<RepositoryError, PostRemote>> call({

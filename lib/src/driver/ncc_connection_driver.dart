@@ -19,7 +19,7 @@ enum RequestType { get, delete, post, put, patch, head }
 base class NccConnectionDriver<CustomClient extends BaseClient>
     implements RemoteDriver<Response> {
   /// {@macro ncc_data_shaft.ncc_connection_driver}
-  const NccConnectionDriver({required this.client});
+  const new({required this.client});
 
   /// The underlying `ncc` client responsible for executing the network calls.
   final CustomClient client;
@@ -43,29 +43,29 @@ base class NccConnectionDriver<CustomClient extends BaseClient>
     return switch (type) {
       RequestType.get => client.get(url, headers: headers),
       RequestType.delete => client.delete(
-          url,
-          headers: headers,
-          body: body,
-          encoding: encoding,
-        ),
+        url,
+        headers: headers,
+        body: body,
+        encoding: encoding,
+      ),
       RequestType.post => client.post(
-          url,
-          headers: headers,
-          body: body,
-          encoding: encoding,
-        ),
+        url,
+        headers: headers,
+        body: body,
+        encoding: encoding,
+      ),
       RequestType.put => client.put(
-          url,
-          headers: headers,
-          body: body,
-          encoding: encoding,
-        ),
+        url,
+        headers: headers,
+        body: body,
+        encoding: encoding,
+      ),
       RequestType.patch => client.patch(
-          url,
-          headers: headers,
-          body: body,
-          encoding: encoding,
-        ),
+        url,
+        headers: headers,
+        body: body,
+        encoding: encoding,
+      ),
       RequestType.head => client.head(url, headers: headers),
     };
   }

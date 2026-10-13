@@ -18,12 +18,13 @@ import 'package:ncc_data_shaft/src/driver/ncc_connection_driver.dart';
 /// session overhead.
 /// {@endtemplate}
 abstract base class DatasourceHttpPatch<
-        RemoteObject extends Codable<Object, RemoteObject>>
+  RemoteObject extends Codable<Object, RemoteObject>
+>
     extends DatasourceNccPatch<RemoteObject, HttpDataShaftDriver> {
   /// {@macro datasource_patch_http}
   ///
   /// Requires an [HttpDataShaftDriver] to execute the partial update request.
-  DatasourceHttpPatch({required super.driver});
+  new({required super.driver});
 
   @override
   FutureOr<RemoteObject> transformation({

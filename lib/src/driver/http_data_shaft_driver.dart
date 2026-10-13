@@ -17,5 +17,5 @@ base class HttpDataShaftDriver extends NccConnectionDriver<NccClient> {
   /// final nccClient = NccClient();
   /// final driver = HttpDataShaftDriver(client: nccClient);
   /// ```
-  HttpDataShaftDriver({required super.client});
+  new({required super.client});
 }
