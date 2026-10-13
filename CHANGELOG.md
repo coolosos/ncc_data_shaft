@@ -1,3 +1,20 @@
+## 3.0.0
+
+### Breaking Changes
+
+- **Updated `data_shaft` dependency** to `^3.0.0`. Because `data_shaft` is re-exported by this package, consumers inherit its breaking changes (a new `HeadParams` was added to the sealed `RequestParams`, the minimum SDK was raised to `>=3.13.0`, `cool_bedrock` was bumped to `^3.0.0`, plus changes to error context and caching semantics). Refer to the [data_shaft changelog](https://pub.dev/packages/data_shaft/changelog) for details.
+- **Minimum SDK raised to Dart 3.13**: `environment.sdk` is now `">=3.13.0 <4.0.0"`.
+
+### Added
+
+- **HEAD support**: Added `DatasourceNccHead`, `DatasourceHttpHead` and `DatasourceSessionHead` to retrieve response metadata (headers) without transferring the body.
+
+### Internal
+
+- **Updated `coolint`** to `3.0.0` and adopted its stricter rule set (`strict-raw-types`, `unnecessary_type_name_in_constructor`, `unnecessary_breaks`, `empty_container_bodies`, etc.).
+- Migrated constructor declarations to the Dart 3.13 `new(...)` syntax.
+- Updated README, CHANGELOG and the AI skill documentation (HEAD classes, `Set<int>` status codes).
+
 ## 2.0.0
 
 ### Breaking Changes
