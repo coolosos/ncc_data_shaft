@@ -14,11 +14,12 @@ import 'package:ncc_data_shaft/src/driver/ncc_connection_driver.dart';
 /// state to be visible or accessible.
 /// {@endtemplate}
 abstract base class DatasourceSessionGet<
-        RemoteObject extends Codable<Object, RemoteObject>>
+  RemoteObject extends Codable<Object, RemoteObject>
+>
     extends DatasourceNccGet<RemoteObject, SessionDataShaftDriver> {
   /// {@macro datasource_get_session}
   ///
   /// Requires a [SessionDataShaftDriver] to execute the authenticated
   /// retrieval request.
-  DatasourceSessionGet({required super.driver});
+  new({required super.driver});
 }
