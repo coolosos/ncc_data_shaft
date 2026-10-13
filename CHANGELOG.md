@@ -3,6 +3,7 @@
 ### Breaking Changes
 
 - **Updated `data_shaft` dependency** to `^3.0.0`. Because `data_shaft` is re-exported by this package, consumers inherit its breaking changes (a new `HeadParams` was added to the sealed `RequestParams`, the minimum SDK was raised to `>=3.13.0`, `cool_bedrock` was bumped to `^3.0.0`, plus changes to error context and caching semantics). Refer to the [data_shaft changelog](https://pub.dev/packages/data_shaft/changelog) for details.
+- **Updated `ncc` dependency** to `^2.0.0`. `ncc` is re-exported by this package; its only change is the raised minimum SDK (`>=3.13.0`) and it introduces no public API changes.
 - **Minimum SDK raised to Dart 3.13**: `environment.sdk` is now `">=3.13.0 <4.0.0"`.
 
 ### Added

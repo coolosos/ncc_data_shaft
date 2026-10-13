@@ -17,6 +17,14 @@ This package provides a standardized RemoteDriver implementation powered by the 
 
 ---
 
+## Requirements
+
+* Dart SDK `>=3.13.0 <4.0.0`
+* [ncc](https://pub.dev/packages/ncc) `^2.0.0`
+* [data_shaft](https://pub.dev/packages/data_shaft) `^3.0.0`
+
+---
+
 ## Key Features
 
 * 🛡️ Context-Strict Typing: The compiler prevents you from using a public client for an endpoint requiring a session (e.g., DatasourceSessionGet vs DatasourceHttpGet).
@@ -40,7 +48,7 @@ final publicClient = NccClient(id: 'public-api');
 final publicDriver = HttpDataShaftDriver(client: publicClient);
 
 // Driver for Authenticated APIs (Uses SessionClient)
-final authClient = MySessionClient(id: 'secure-api'); 
+final authClient = MySessionClient(id: 'secure-api');
 final sessionDriver = SessionDataShaftDriver(client: authClient);
 ```
 
