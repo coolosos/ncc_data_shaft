@@ -8,7 +8,7 @@ Models must implement `Codable<RemoteType, SelfType>`.
 import 'package:data_shaft/data_shaft.dart';
 
 final class UserRemote extends Codable<String, UserRemote> {
-  const UserRemote({this.id = 0, this.name = ''});
+  const new({this.id = 0, this.name = ''});
   
   final int id;
   final String name;
@@ -48,12 +48,12 @@ part 'user_remote.g.dart';
 
 @JsonSerializable(createToJson: false)
 final class UserRemote extends Codable<String, UserRemote> {
-  const UserRemote({this.id = 0, this.name = ''});
+  const new({this.id = 0, this.name = ''});
   
   final int id;
   final String name;
 
-  factory UserRemote.fromJson(Map<String, dynamic> json) => _$UserRemoteFromJson(json);
+  factory new.fromJson(Map<String, dynamic> json) => _$UserRemoteFromJson(json);
 
   @override
   UserRemote decode(String remote) {
@@ -83,7 +83,7 @@ Parameters for DataSources and Repositories must extend `Params`.
 
 ```dart
 final class UserParams extends Params {
-  const UserParams({required this.id});
+  const new({required this.id});
   final int id;
 
   @override
@@ -115,7 +115,7 @@ Set<int> get inadmissibleStatusCode => {400, 401, 403, 404};
 @LazySingleton()
 final class UserDataSource 
     extends DatasourceHttpGet<UserRemote> {
-  UserDataSource({required super.driver});
+  new({required super.driver});
 
   @override
   Set<int> get admissibleStatusCode => {200};
@@ -149,7 +149,7 @@ final class UserDataSource
 @LazySingleton()
 final class UpdateUserDataSource 
     extends DatasourceSessionPatch<UserRemote> {
-  UpdateUserDataSource({required super.driver});
+  new({required super.driver});
 
   @override
   Set<int> get admissibleStatusCode => {200};
@@ -190,7 +190,7 @@ For simple passthrough repositories with automatic error mapping (DataSourceExce
 @LazySingleton()
 final class UserRepository 
     extends SafeRepositoryDatasourceCallable<UserRemote, UserDataSource> {
-  UserRepository({required super.dataSource});
+  new({required super.dataSource});
 }
 ```
 
@@ -201,7 +201,7 @@ For endpoints where in-memory caching with TTL is desired. Requires a `refreshDu
 @LazySingleton()
 final class PostRepository
     extends DeduplicationCacheRepository<PostRemote, GetPostRemoteDataSource> {
-  PostRepository({
+  new({
     required super.dataSource,
   }) : super(refreshDuration: const Duration(minutes: 5));
 
@@ -213,26 +213,97 @@ final class PostRepository
 ```
 
 ## 5. Global Logging
+
+`HttpDatasourceObserver` from `data_shaft` receives the entire remote flow. Implement it and assign it to `DatasourceObserverInstances` to log every interaction:
+
 ```dart
 import 'dart:developer';
 import 'package:ncc_data_shaft/ncc_data_shaft.dart';
 
-class GlobalNetworkLogger implements HttpDatasourceObserver {
+final class GlobalNetworkLogger implements HttpDatasourceObserver {
+  const new();
+
   @override
-  void onInadmissibleResponse(InadmissibleDataSourceException exception) {
-    log('❌ INADMISSIBLE: ${exception.message}', name: 'NETWORK');
+  void onCreate(String name) {
+    log('🔨 CREATE: $name', name: 'NETWORK');
   }
 
   @override
-  void onResponseSuccess(RequestResponse<Response> response) {
-    log('✅ SUCCESS [${response.statusCode}]: ${response.originalResponse.url}', name: 'NETWORK');
+  void onDispose(String name) {
+    log('🧹 DISPOSE: $name', name: 'NETWORK');
   }
 
   @override
-  void onUnControlResponse(UnControlDataSourceException exception) {
-    log('🚨 UNCONTROLLED: ${exception.message}', name: 'NETWORK');
+  void onAdmissible(Object? objectResult, {required String datasourceName}) {
+    log('✅ ADMISSIBLE [$datasourceName]: $objectResult', name: 'NETWORK');
+  }
+
+  @override
+  void onCall(Uri uri, {required String datasourceName, String? body}) {
+    log('📡 CALL [$datasourceName]: $uri', name: 'NETWORK');
+  }
+
+  @override
+  void onDriverException(
+    Object error,
+    StackTrace stackTrace, {
+    required String datasourceName,
+    Map<String, String>? requestHeaders,
+    Uri? requestUri,
+    Object? requestBody,
+  }) {
+    log('⛔ DRIVER EXCEPTION [$datasourceName]: $error', name: 'NETWORK');
+  }
+
+  @override
+  void onInadmissibleException(
+    int statusCode,
+    String body,
+    Object? response,
+    Set<int> inadmissibleStatusCodes, {
+    required String datasourceName,
+    Map<String, String>? requestHeaders,
+    Uri? requestUri,
+    Object? requestBody,
+  }) {
+    log(
+      '❌ INADMISSIBLE [$datasourceName] ($statusCode): $body',
+      name: 'NETWORK',
+    );
+  }
+
+  @override
+  void onUnControlException(
+    int statusCode,
+    String body,
+    Object? response,
+    Set<int> inadmissibleStatusCodes,
+    Set<int> admissibleStatusCodes, {
+    required String datasourceName,
+    Map<String, String>? requestHeaders,
+    Uri? requestUri,
+    Object? requestBody,
+  }) {
+    log(
+      '🚨 UNCONTROLLED [$datasourceName] ($statusCode): $body',
+      name: 'NETWORK',
+    );
+  }
+
+  @override
+  void onUriCreation(
+    String? url,
+    Map<String, String> modifyParameters,
+    Uri? uri, {
+    required String datasourceName,
+  }) {
+    log('🔗 URI [$datasourceName]: $uri', name: 'NETWORK');
   }
 }
+```
+
+```dart
+DatasourceObserverInstances.httpDatasourceObserver = const GlobalNetworkLogger();
 ```
 
 ## 6. Dependency Injection (injectable)
@@ -275,9 +346,9 @@ Use these mocks to simulate all HTTP verbs and session behaviors.
 import 'package:ncc_data_shaft/ncc_data_shaft.dart';
 import 'package:http/http.dart' as http;
 
-// ignore: must_be_immutable
+// ignore: must_be_immutable MOCK
 final class NccClientMock extends NccClient {
-  NccClientMock() : super(client: http.Client(), id: 'mock');
+  new() : super(client: http.Client(), id: 'mock');
 
   String responseBody = '{}';
   int responseStatus = 200;
@@ -488,7 +559,7 @@ Override mappers in your repository to customize error messages:
 ```dart
 final class UserRepository
     extends SafeRepositoryDatasourceCallable<UserRemote, UserDataSource> {
-  UserRepository({required super.dataSource});
+  new({required super.dataSource});
 
   @override
   InadmissibleRepositoryError onInadmissibleException(
@@ -506,7 +577,7 @@ final class UserRepository
 
 ```dart
 final class MySessionClient extends SessionClient {
-  MySessionClient({required super.client, required super.id});
+  new({required super.client, required super.id});
 
   @override
   Future<String?> getBearerToken() async {

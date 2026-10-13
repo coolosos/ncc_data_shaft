@@ -14,7 +14,7 @@ Before generating any files, **you MUST ask the user** for the following informa
 2.  **Base URL (Host)**: e.g., `https://api.example.com/`
 3.  **Endpoint Path**: e.g., `users/profile` or `posts/{id}`
 4.  **Request Parameters**: What inputs does the endpoint need? (e.g., query params, body data, path segments).
-5.  **Success Codes**: Default is `[200]`.
+5.  **Success Codes**: Default is `{200}`.
 6.  **Advanced Features**: Does the project use `json_serializable` or `injectable`?
 
 ## Directory Structure
